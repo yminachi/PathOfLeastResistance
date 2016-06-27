@@ -1,11 +1,16 @@
 package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.Path;
-
+import java.util.HashMap;
 import java.util.Map;
+
+import static java.util.Collections.singletonList;
 
 public class InitialColumnPathsBuilder {
     public Map<Integer, Path> buildInitialColumnPaths(double[] firstColumn){
-        return null;
+        Map<Integer,Path> initialColumnPaths = new HashMap<>();
+        for(int index = 0;index<firstColumn.length;index++){
+            initialColumnPaths.put(index, new Path(singletonList(index), firstColumn[index]));
+        }
+        return initialColumnPaths;
     }
 }
