@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BestPathThroughCellCalculator {
+
     private MinimumPathPicker minimumPathPicker;
 
     public BestPathThroughCellCalculator(MinimumPathPicker minimumPathPicker){

@@ -8,11 +8,18 @@ public class OutputFormatter {
         String output = path.getRowsInPath().size() == numberOfColumns ? YES : NO;
         output += "\n" + (int) path.getPathTotal() + "\n";
         for (int row : path.getRowsInPath()) {
-            output += row + " ";
+            output += convertFromZeroToOneIndex(row) + " ";
         }
-        //remove trailing space
-        output = output.substring(0, output.length() - 1);
+        output = removeTrialingSpace(output);
 
         return output;
+    }
+
+    private String removeTrialingSpace(String input){
+        return input.substring(0, input.length() - 1);
+    }
+
+    private int convertFromZeroToOneIndex(int index){
+        return index + 1;
     }
 }
