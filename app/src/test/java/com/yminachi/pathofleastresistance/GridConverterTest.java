@@ -6,6 +6,7 @@ import org.apache.commons.math.linear.RealMatrix;
 import org.junit.Before;
 import org.junit.Test;
 
+import static java.lang.Double.parseDouble;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 

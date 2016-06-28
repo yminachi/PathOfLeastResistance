@@ -54,7 +54,8 @@ public class OutputFormatterTest {
 
     @Test
     public void shouldHaveThirdLineAsPath() {
-        String expectedRowsInPath = "1 2 3 4 5";
+        //output has a starting index of 1
+        String expectedRowsInPath = "2 3 4 5 6";
         when(path.getRowsInPath()).thenReturn(ROWS_IN_PATH);
 
         String result = underTest.getOutput(path, NUMBER_OF_COLUMNS);

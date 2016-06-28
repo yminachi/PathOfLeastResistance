@@ -1,5 +1,11 @@
 package com.yminachi.pathofleastresistance;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.AdjacentCellPathPicker;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughCellCalculator;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughGridCalculator;
@@ -9,70 +15,37 @@ import com.yminachi.pathofleastresistance.leastresistancepathcalculator.InitialC
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.MinimumPathPicker;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.OutputFormatter;
 
-import org.junit.Before;
-import org.junit.Test;
+public class PathOfLeastResistance extends AppCompatActivity {
 
-import static org.hamcrest.CoreMatchers.anyOf;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isIn;
-import static org.junit.Assert.assertThat;
+    private TextView outputText;
+    private EditText inputText;
 
-public class PathOfLeastResistanceFunctionalTest {
-    private PathOfLeastResistanceCalculator calculator;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_path_of_least_resistance);
 
-    @Before
-    public void setup() {
-        calculator = getPathOfLeastResistanceCalculator();
+        outputText = (TextView) findViewById(R.id.outputText);
+        inputText = (EditText) findViewById(R.id.inputText);
     }
 
-    @Test
-    public void testCaseOne() {
-        String input =
-                "3 4 1 2 8 6\n" +
-                "6 1 8 2 7 4\n" +
-                "5 9 3 9 9 5\n" +
-                "8 4 1 3 2 6\n" +
-                "3 7 2 8 6 4";
-        String expectedOutput = "Yes\n" +
-                "16\n" +
-                "1 2 3 4 4 5";
-
-        assertThat(calculator.calculatePathOfLeastResistance(input), is(expectedOutput));
+    public void calculatePathOfLeastResistance(View view) {
+        String input, output;
+        PathOfLeastResistanceCalculator pathOfLeastResistanceCalculator = getPathOfLeastResistanceCalculator();
+        try {
+            input = inputText.getText().toString();
+            output = pathOfLeastResistanceCalculator.calculatePathOfLeastResistance(input);
+            outputText.setText(output);
+            //probably bad to catch all exceptions
+            //TODO: actually create a custom exception in grid creation for bad input and return an appropriate error message
+        } catch (Exception e) {
+            outputText.setText(e.getMessage());
+        }
     }
 
-    @Test
-    public void testCaseTwo() {
-        String input =
-                "3 4 1 2 8 6\n" +
-                "6 1 8 2 7 4\n" +
-                "5 9 3 9 9 5\n" +
-                "8 4 1 3 2 6\n" +
-                "3 7 2 1 2 3";
-        String expectedOutput = "Yes\n" +
-                "11\n" +
-                "1 2 1 5 4 5";
-
-        String alternateSolution = "Yes\n" +
-                "11\n" +
-                "1 2 1 5 5 5";
-
-        assertThat(calculator.calculatePathOfLeastResistance(input), anyOf(is(expectedOutput), is(alternateSolution)));
-    }
-
-    @Test
-    public void testCaseThree() {
-        String input =
-                "19 10 19 10 19\n" +
-                "21 23 20 19 12\n" +
-                "20 12 20 11 10";
-        String expectedOutput = "No\n" +
-                "48\n" +
-                "1 1 1";
-
-        assertThat(calculator.calculatePathOfLeastResistance(input), is(expectedOutput));
-    }
-
-    //see comment in PathOfLeastResistance.java
+    //this is a little ridiculous.  I was thinking of experimenting with dependency injection frameworks in android and use
+    //these classes as services, but I ran out of time so now I'm doing this
+    //TODO: find better way to inject all the dependant classes
     private PathOfLeastResistanceCalculator getPathOfLeastResistanceCalculator(){
         AdjacentCellPathPicker adjacentCellPathPicker = new AdjacentCellPathPicker();
         MinimumPathPicker minimumPathPicker = new MinimumPathPicker();
