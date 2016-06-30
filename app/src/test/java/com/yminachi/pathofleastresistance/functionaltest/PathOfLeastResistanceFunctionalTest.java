@@ -82,7 +82,7 @@ public class PathOfLeastResistanceFunctionalTest {
 	}
 
 	@Test
-	public void energyContinueEvenWhenPathTotalUnderMax(){
+	public void energyCantContinueEvenWhenPathTotalUnderMax(){
 		String input =
 				"52 -4000 1 2 8 6\n" +
 				"65 -1000 8 2 7 4\n" +
