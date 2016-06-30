@@ -72,7 +72,6 @@ public class PathOfLeastResistanceFunctionalTest {
         assertThat(calculator.calculatePathOfLeastResistance(input), is(expectedOutput));
     }
 
-    //see comment in PathOfLeastResistance.java
     private PathOfLeastResistanceCalculator getPathOfLeastResistanceCalculator(){
         AdjacentCellPathPicker adjacentCellPathPicker = new AdjacentCellPathPicker();
         MinimumPathPicker minimumPathPicker = new MinimumPathPicker();

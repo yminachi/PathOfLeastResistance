@@ -36,16 +36,11 @@ public class PathOfLeastResistance extends AppCompatActivity {
             input = inputText.getText().toString();
             output = pathOfLeastResistanceCalculator.calculatePathOfLeastResistance(input);
             outputText.setText(output);
-            //probably bad to catch all exceptions
-            //TODO: actually create a custom exception in grid creation for bad input and return an appropriate error message
         } catch (Exception e) {
             outputText.setText(e.getMessage());
         }
     }
 
-    //this is a little ridiculous.  I was thinking of experimenting with dependency injection frameworks in android and use
-    //these classes as services, but I ran out of time so now I'm doing this
-    //TODO: find better way to inject all the dependant classes
     private PathOfLeastResistanceCalculator getPathOfLeastResistanceCalculator(){
         AdjacentCellPathPicker adjacentCellPathPicker = new AdjacentCellPathPicker();
         MinimumPathPicker minimumPathPicker = new MinimumPathPicker();
