@@ -1,7 +1,5 @@
 package com.yminachi.pathofleastresistance;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.Path;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

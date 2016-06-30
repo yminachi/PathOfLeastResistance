@@ -1,12 +1,11 @@
-package com.yminachi.pathofleastresistance;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.GridConverter;
+import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.GridConverter;
 
 import org.apache.commons.math.linear.RealMatrix;
 import org.junit.Before;
 import org.junit.Test;
 
-import static java.lang.Double.parseDouble;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 

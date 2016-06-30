@@ -1,10 +1,6 @@
-package com.yminachi.pathofleastresistance;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughGridCalculator;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathsThroughColumnCalculator;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.InitialColumnPathsBuilder;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.MinimumPathPicker;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.Path;
+import com.yminachi.pathofleastresistance.Path;
 
 import org.apache.commons.math.linear.RealMatrix;
 import org.junit.Before;

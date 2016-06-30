@@ -1,6 +1,7 @@
-package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
 
 import com.google.common.base.Predicates;
+import com.yminachi.pathofleastresistance.Path;
 
 import java.util.List;
 import java.util.Map;

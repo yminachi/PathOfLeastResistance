@@ -1,4 +1,4 @@
-package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
+package com.yminachi.pathofleastresistance;
 
 import java.util.List;
 

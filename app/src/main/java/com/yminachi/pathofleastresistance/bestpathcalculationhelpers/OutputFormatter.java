@@ -1,4 +1,6 @@
-package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
+
+import com.yminachi.pathofleastresistance.Path;
 
 public class OutputFormatter {
     private static final String YES = "Yes";

@@ -1,4 +1,6 @@
-package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
+
+import com.yminachi.pathofleastresistance.Path;
 
 import org.apache.commons.math.linear.RealMatrix;
 

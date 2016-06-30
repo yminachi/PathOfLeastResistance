@@ -1,9 +1,7 @@
-package com.yminachi.pathofleastresistance;
+package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.AdjacentCellPathPicker;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.Path;
+import com.yminachi.pathofleastresistance.Path;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
