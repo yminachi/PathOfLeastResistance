@@ -38,7 +38,7 @@ public class BestPathThroughGridCalculatorTest {
 	private Path expectedPath;
 
 	@Mock
-	private Map<Integer, Path> bestColumnPaths1, bestColumnPaths2, bestColumnPaths3;
+	private Map<Integer, Path> initialEmptyPaths, bestColumnPaths1, bestColumnPaths2, bestColumnPaths3;
 
 	@Mock
 	private Collection<Path> paths1, paths2, paths3;
@@ -73,9 +73,9 @@ public class BestPathThroughGridCalculatorTest {
 
 	private void stubColumnPaths() {
 		when(grid.getColumnDimension()).thenReturn(3);
-		when(grid.getColumn(1)).thenReturn(COLUMN_1);
-		when(initialColumnPathsBuilder.buildInitialColumnPaths(COLUMN_1)).thenReturn(bestColumnPaths1);
+		when(initialColumnPathsBuilder.buildInitialColumnPaths(3)).thenReturn(initialEmptyPaths);
 
+		stubColumnPath(1, COLUMN_1, paths2, initialEmptyPaths, bestColumnPaths1);
 		stubColumnPath(2, COLUMN_2, paths2, bestColumnPaths1, bestColumnPaths2);
 		stubColumnPath(3, COLUMN_3, paths3, bestColumnPaths2, bestColumnPaths3);
 	}

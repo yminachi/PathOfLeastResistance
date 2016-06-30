@@ -5,6 +5,7 @@ import com.yminachi.pathofleastresistance.Path;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.Map;
 
 import static java.util.Collections.singletonList;
@@ -12,8 +13,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class InitialColumnPathsBuilderTest {
-	private static double[] firstColumn = {1, 2};
-
+	private static final int NUMBER_OF_ROWS = 2;
 	private InitialColumnPathsBuilder underTest;
 
 	@Before
@@ -22,18 +22,14 @@ public class InitialColumnPathsBuilderTest {
 	}
 
 	@Test
-	public void shouldBuildWithExpectedFirstPath() {
-		Map<Integer, Path> result = underTest.buildInitialColumnPaths(firstColumn);
-
-		assertThat(result.get(0).getPathTotal(), is(firstColumn[0]));
-		assertThat(result.get(0).getRowsInPath(), is(singletonList(0)));
+	public void shouldBuildEmptyPaths() {
+		Map<Integer, Path> result = underTest.buildInitialColumnPaths(NUMBER_OF_ROWS);
+		assertPathEmpty(result, 0);
+		assertPathEmpty(result, 1);
 	}
 
-	@Test
-	public void shouldBuildWithExpectedSecondPath() {
-		Map<Integer, Path> result = underTest.buildInitialColumnPaths(firstColumn);
-
-		assertThat(result.get(1).getPathTotal(), is(firstColumn[1]));
-		assertThat(result.get(1).getRowsInPath(), is(singletonList(1)));
+	private void assertPathEmpty(Map<Integer, Path> result, int index){
+		assertThat(result.get(index).getPathTotal(), is(0d));
+		assertThat(result.get(index).getRowsInPath(), is(Collections.<Integer>emptyList()));
 	}
 }
