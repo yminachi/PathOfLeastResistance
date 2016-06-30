@@ -2,23 +2,23 @@ package com.yminachi.pathofleastresistance.leastresistancepathcalculator;
 
 import org.apache.commons.math.linear.RealMatrix;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import static java.util.Collections.singletonList;
 
 public class BestPathThroughGridCalculator {
     private BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator;
-    private InitialColumnPathsBuilder initialColumnPathsBuilder;
     private MinimumPathPicker minimumPathPicker;
 
     public BestPathThroughGridCalculator(BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator,
-                                         InitialColumnPathsBuilder initialColumnPathsBuilder,
                                          MinimumPathPicker minimumPathPicker) {
         this.bestPathsThroughColumnCalculator = bestPathsThroughColumnCalculator;
-        this.initialColumnPathsBuilder = initialColumnPathsBuilder;
         this.minimumPathPicker = minimumPathPicker;
     }
 
     public Path calculateBestPathThroughGrid(RealMatrix grid, double maxTotal) {
-        Map<Integer, Path> previousColumnsPaths = initialColumnPathsBuilder.buildInitialColumnPaths(grid.getColumn(1));
+        Map<Integer, Path> previousColumnsPaths = buildInitialColumnPaths(grid.getColumn(1));
 
         for (int column = 2; column <= grid.getColumnDimension(); column++) {
             Map<Integer, Path> thisColumnsPaths;
@@ -31,5 +31,13 @@ public class BestPathThroughGridCalculator {
         }
 
         return minimumPathPicker.pickMinimumPath(previousColumnsPaths.values());
+    }
+
+    private Map<Integer, Path> buildInitialColumnPaths(double[] firstColumn){
+        Map<Integer,Path> initialColumnPaths = new HashMap<>();
+        for(int index = 0;index<firstColumn.length;index++){
+            initialColumnPaths.put(index, new Path(singletonList(index), firstColumn[index]));
+        }
+        return initialColumnPaths;
     }
 }

@@ -1,11 +1,8 @@
 package com.yminachi.pathofleastresistance;
 
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.AdjacentCellPathPicker;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughCellCalculator;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughGridCalculator;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathsThroughColumnCalculator;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.GridConverter;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.InitialColumnPathsBuilder;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.MinimumPathPicker;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.OutputFormatter;
 
@@ -74,14 +71,11 @@ public class PathOfLeastResistanceFunctionalTest {
 
     //see comment in PathOfLeastResistance.java
     private PathOfLeastResistanceCalculator getPathOfLeastResistanceCalculator(){
-        AdjacentCellPathPicker adjacentCellPathPicker = new AdjacentCellPathPicker();
         MinimumPathPicker minimumPathPicker = new MinimumPathPicker();
         GridConverter gridConverter = new GridConverter();
-        InitialColumnPathsBuilder initialColumnPathsBuilder = new InitialColumnPathsBuilder();
-        BestPathThroughCellCalculator bestPathThroughCellCalculator = new BestPathThroughCellCalculator(minimumPathPicker);
         OutputFormatter outputFormatter = new OutputFormatter();
-        BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator = new BestPathsThroughColumnCalculator(adjacentCellPathPicker, bestPathThroughCellCalculator);
-        BestPathThroughGridCalculator bestPathThroughGridCalculator = new BestPathThroughGridCalculator(bestPathsThroughColumnCalculator, initialColumnPathsBuilder, minimumPathPicker);
+        BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator = new BestPathsThroughColumnCalculator(minimumPathPicker);
+        BestPathThroughGridCalculator bestPathThroughGridCalculator = new BestPathThroughGridCalculator(bestPathsThroughColumnCalculator, minimumPathPicker);
 
         return new PathOfLeastResistanceCalculator(bestPathThroughGridCalculator, gridConverter, outputFormatter);
     }

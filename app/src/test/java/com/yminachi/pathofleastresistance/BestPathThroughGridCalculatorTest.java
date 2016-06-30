@@ -2,7 +2,6 @@ package com.yminachi.pathofleastresistance;
 
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathThroughGridCalculator;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.BestPathsThroughColumnCalculator;
-import com.yminachi.pathofleastresistance.leastresistancepathcalculator.InitialColumnPathsBuilder;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.MinimumPathPicker;
 import com.yminachi.pathofleastresistance.leastresistancepathcalculator.Path;
 
@@ -33,9 +32,6 @@ public class BestPathThroughGridCalculatorTest {
     private MinimumPathPicker minimumPathPicker;
 
     @Mock
-    private InitialColumnPathsBuilder initialColumnPathsBuilder;
-
-    @Mock
     private RealMatrix grid;
 
     @Mock
@@ -51,7 +47,7 @@ public class BestPathThroughGridCalculatorTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        underTest = new BestPathThroughGridCalculator(bestPathsThroughColumnCalculator, initialColumnPathsBuilder, minimumPathPicker);
+        underTest = new BestPathThroughGridCalculator(bestPathsThroughColumnCalculator, minimumPathPicker);
     }
 
     @Test
@@ -78,7 +74,6 @@ public class BestPathThroughGridCalculatorTest {
     private void stubColumnPaths() {
         when(grid.getColumnDimension()).thenReturn(3);
         when(grid.getColumn(1)).thenReturn(COLUMN_1);
-        when(initialColumnPathsBuilder.buildInitialColumnPaths(COLUMN_1)).thenReturn(bestColumnPaths1);
 
         stubColumnPath(2, COLUMN_2, paths2, bestColumnPaths1, bestColumnPaths2);
         stubColumnPath(3, COLUMN_3, paths3, bestColumnPaths2, bestColumnPaths3);
