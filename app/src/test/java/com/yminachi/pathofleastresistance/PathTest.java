@@ -11,26 +11,26 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class PathTest {
-    private static final double EXPECTED_TOTAL = 5;
+	private static final double EXPECTED_TOTAL = 5;
 
-    private Path underTest;
+	private Path underTest;
 
-    @Mock
-    private List<Integer> expectedRowsInPath;
+	@Mock
+	private List<Integer> expectedRowsInPath;
 
-    @Before
-    public void setup(){
-        MockitoAnnotations.initMocks(this);
-        underTest = new Path(expectedRowsInPath, EXPECTED_TOTAL);
-    }
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+		underTest = new Path(expectedRowsInPath, EXPECTED_TOTAL);
+	}
 
-    @Test
-    public void shouldGetPathTotal(){
-        assertThat(underTest.getPathTotal(), is(EXPECTED_TOTAL));
-    }
+	@Test
+	public void shouldGetPathTotal() {
+		assertThat(underTest.getPathTotal(), is(EXPECTED_TOTAL));
+	}
 
-    @Test
-    public void shouldGetRowsInPath(){
-        assertThat(underTest.getRowsInPath(), is(expectedRowsInPath));
-    }
+	@Test
+	public void shouldGetRowsInPath() {
+		assertThat(underTest.getRowsInPath(), is(expectedRowsInPath));
+	}
 }

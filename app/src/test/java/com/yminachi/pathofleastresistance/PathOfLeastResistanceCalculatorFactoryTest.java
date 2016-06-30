@@ -6,9 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 
 public class PathOfLeastResistanceCalculatorFactoryTest {
-    @Test
-    public void shouldReturnPathOfLeastResistanceCalculator(){
-        PathOfLeastResistanceCalculatorFactory underTest = new PathOfLeastResistanceCalculatorFactory();
-        assertThat(underTest.createPathOfLeastResistanceCalculator(), Matchers.isA(PathOfLeastResistanceCalculator.class));
-    }
+	@Test
+	public void shouldReturnPathOfLeastResistanceCalculator() {
+		PathOfLeastResistanceCalculatorFactory underTest = new PathOfLeastResistanceCalculatorFactory();
+		assertThat(underTest.createPathOfLeastResistanceCalculator(), Matchers.isA(PathOfLeastResistanceCalculator.class));
+	}
 }

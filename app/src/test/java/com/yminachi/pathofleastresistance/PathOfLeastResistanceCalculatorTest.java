@@ -16,50 +16,50 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
 
 public class PathOfLeastResistanceCalculatorTest {
-    private static final String INPUT = "FOO";
-    private static final int NUMBER_OF_COLUMNS = 5;
-    private static final int MAX_TOTAL = 50;
-    private static final String EXPECTED_OUTPUT = "bar";
-    private static final String ERROR_MESSAGE = "Bad Grid Input!!";
+	private static final String INPUT = "FOO";
+	private static final int NUMBER_OF_COLUMNS = 5;
+	private static final int MAX_TOTAL = 50;
+	private static final String EXPECTED_OUTPUT = "bar";
+	private static final String ERROR_MESSAGE = "Bad Grid Input!!";
 
-    private PathOfLeastResistanceCalculator underTest;
+	private PathOfLeastResistanceCalculator underTest;
 
-    @Mock
-    private OutputFormatter outputFormatter;
+	@Mock
+	private OutputFormatter outputFormatter;
 
-    @Mock
-    private GridConverter gridConverter;
+	@Mock
+	private GridConverter gridConverter;
 
-    @Mock
-    private BestPathThroughGridCalculator bestPathThroughGridCalculator;
+	@Mock
+	private BestPathThroughGridCalculator bestPathThroughGridCalculator;
 
-    @Mock
-    private RealMatrix grid;
+	@Mock
+	private RealMatrix grid;
 
-    @Mock
-    private Path path;
+	@Mock
+	private Path path;
 
-    @Before
-    public void setup() throws BadGridException {
-        MockitoAnnotations.initMocks(this);
+	@Before
+	public void setup() throws BadGridException {
+		MockitoAnnotations.initMocks(this);
 
-        underTest = new PathOfLeastResistanceCalculator(bestPathThroughGridCalculator, gridConverter, outputFormatter);
+		underTest = new PathOfLeastResistanceCalculator(bestPathThroughGridCalculator, gridConverter, outputFormatter);
 
-        when(gridConverter.convertToGrid(INPUT)).thenReturn(grid);
-        when(grid.getColumnDimension()).thenReturn(NUMBER_OF_COLUMNS);
-        when(bestPathThroughGridCalculator.calculateBestPathThroughGrid(grid, MAX_TOTAL )).thenReturn(path);
-        when(outputFormatter.getOutput(path, NUMBER_OF_COLUMNS)).thenReturn(EXPECTED_OUTPUT);
-    }
+		when(gridConverter.convertToGrid(INPUT)).thenReturn(grid);
+		when(grid.getColumnDimension()).thenReturn(NUMBER_OF_COLUMNS);
+		when(bestPathThroughGridCalculator.calculateBestPathThroughGrid(grid, MAX_TOTAL)).thenReturn(path);
+		when(outputFormatter.getOutput(path, NUMBER_OF_COLUMNS)).thenReturn(EXPECTED_OUTPUT);
+	}
 
-    @Test
-    public void shouldReturnExpectedOutput(){
-        assertThat(underTest.calculatePathOfLeastResistance(INPUT), is(EXPECTED_OUTPUT));
-    }
+	@Test
+	public void shouldReturnExpectedOutput() {
+		assertThat(underTest.calculatePathOfLeastResistance(INPUT), is(EXPECTED_OUTPUT));
+	}
 
-    @Test
-    public void shouldReturnErrorOutputWhenInputIsInvalid() throws BadGridException {
-        when(gridConverter.convertToGrid(INPUT)).thenThrow(BadGridException.class);
+	@Test
+	public void shouldReturnErrorOutputWhenInputIsInvalid() throws BadGridException {
+		when(gridConverter.convertToGrid(INPUT)).thenThrow(BadGridException.class);
 
-        assertThat(underTest.calculatePathOfLeastResistance(INPUT), is(ERROR_MESSAGE));
-    }
+		assertThat(underTest.calculatePathOfLeastResistance(INPUT), is(ERROR_MESSAGE));
+	}
 }
