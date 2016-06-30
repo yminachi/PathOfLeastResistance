@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import static org.hamcrest.Matchers.contains;
@@ -85,5 +86,16 @@ public class AdjacentCellPathPickerTest {
         List<Path> result = underTest.pickAdjacentPaths(lastColumnsPaths, COLUMN_SIZE - 1);
 
         assertThat(result, hasItem(path));
+    }
+
+    @Test
+    public void shouldNotIncludeNulls(){
+        when(lastColumnsPaths.get(CURRENT_ROW)).thenReturn(null);
+        when(lastColumnsPaths.get(CURRENT_ROW - 1)).thenReturn(null);
+        when(lastColumnsPaths.get(CURRENT_ROW + 1)).thenReturn(null);
+
+        List<Path> result = underTest.pickAdjacentPaths(lastColumnsPaths, CURRENT_ROW);
+
+        assertThat(result, is(Collections.<Path>emptyList()));
     }
 }
