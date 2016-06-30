@@ -20,9 +20,13 @@ public class PathOfLeastResistanceCalculator {
     }
 
     public String calculatePathOfLeastResistance(String input){
-        RealMatrix grid = gridConverter.convertToGrid(input);
-        int numberOfColumns = grid.getColumnDimension();
-        Path bestPath = bestPathThroughGridCalculator.calculateBestPathThroughGrid(grid, MAX_TOTAL);
-        return outputFormatter.getOutput(bestPath, numberOfColumns);
+        try {
+            RealMatrix grid = gridConverter.convertToGrid(input);
+            int numberOfColumns = grid.getColumnDimension();
+            Path bestPath = bestPathThroughGridCalculator.calculateBestPathThroughGrid(grid, MAX_TOTAL);
+            return outputFormatter.getOutput(bestPath, numberOfColumns);
+        } catch (Exception e){
+            return "foo";
+        }
     }
 }

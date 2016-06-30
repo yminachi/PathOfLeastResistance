@@ -1,6 +1,7 @@
 package com.yminachi.pathofleastresistance;
 
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.BestPathThroughGridCalculator;
+import com.yminachi.pathofleastresistance.ioformatters.BadGridException;
 import com.yminachi.pathofleastresistance.ioformatters.GridConverter;
 import com.yminachi.pathofleastresistance.ioformatters.OutputFormatter;
 
@@ -38,7 +39,7 @@ public class PathOfLeastResistanceCalculatorTest {
     private Path path;
 
     @Before
-    public void setup(){
+    public void setup() throws BadGridException {
         MockitoAnnotations.initMocks(this);
 
         underTest = new PathOfLeastResistanceCalculator(bestPathThroughGridCalculator, gridConverter, outputFormatter);
