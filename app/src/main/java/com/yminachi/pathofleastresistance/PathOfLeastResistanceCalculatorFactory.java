@@ -4,10 +4,10 @@ import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.AdjacentCel
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.BestPathThroughCellCalculator;
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.BestPathThroughGridCalculator;
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.BestPathsThroughColumnCalculator;
-import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.GridConverter;
+import com.yminachi.pathofleastresistance.ioformatters.GridConverter;
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.InitialColumnPathsBuilder;
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.MinimumPathPicker;
-import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.OutputFormatter;
+import com.yminachi.pathofleastresistance.ioformatters.OutputFormatter;
 
 public class PathOfLeastResistanceCalculatorFactory {
 

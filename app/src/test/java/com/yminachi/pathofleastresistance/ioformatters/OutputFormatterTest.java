@@ -1,6 +1,7 @@
-package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
+package com.yminachi.pathofleastresistance.ioformatters;
 
 import com.yminachi.pathofleastresistance.Path;
+import com.yminachi.pathofleastresistance.ioformatters.OutputFormatter;
 
 import org.junit.Before;
 import org.junit.Test;

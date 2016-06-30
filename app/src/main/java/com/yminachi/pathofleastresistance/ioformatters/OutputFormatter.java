@@ -1,4 +1,4 @@
-package com.yminachi.pathofleastresistance.bestpathcalculationhelpers;
+package com.yminachi.pathofleastresistance.ioformatters;
 
 import com.yminachi.pathofleastresistance.Path;
 

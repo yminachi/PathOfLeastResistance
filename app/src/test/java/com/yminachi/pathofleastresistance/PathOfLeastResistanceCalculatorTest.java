@@ -1,8 +1,8 @@
 package com.yminachi.pathofleastresistance;
 
 import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.BestPathThroughGridCalculator;
-import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.GridConverter;
-import com.yminachi.pathofleastresistance.bestpathcalculationhelpers.OutputFormatter;
+import com.yminachi.pathofleastresistance.ioformatters.GridConverter;
+import com.yminachi.pathofleastresistance.ioformatters.OutputFormatter;
 
 import org.apache.commons.math.linear.RealMatrix;
 import org.junit.Before;
