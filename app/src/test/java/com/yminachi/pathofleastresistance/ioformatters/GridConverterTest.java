@@ -10,6 +10,8 @@ import static org.junit.Assert.assertThat;
 public class GridConverterTest {
     private static final int GRID_MAX_HEIGHT = 10;
     private static final int GRID_MAX_WIDTH = 100;
+    private static final int GRID_MIN_HEIGHT = 1;
+    private static final int GRID_MIN_WIDTH = 5;
     private static final int VALID_WIDTH_OR_HEIGHT = 4;
 
     private GridConverter underTest;
@@ -21,10 +23,10 @@ public class GridConverterTest {
 
     @Test
     public void shouldConstructGrid() throws BadGridException {
-        String input = "1 2 3\n3 4 6";
+        String input = "1 2 3 4 5\n3 4 6 4 5";
         double[][] expectedOutput = {
-                {1,2,3},
-                {3,4,6}
+                {1,2,3,4,5},
+                {3,4,6,4,5}
         };
 
         RealMatrix result = underTest.convertToGrid(input);
@@ -46,22 +48,29 @@ public class GridConverterTest {
     }
 
     @Test(expected = BadGridException.class)
-    public void shouldThrowExceptionWhenGridIsWrongHeight() throws BadGridException{
+    public void shouldThrowExceptionWhenHeightTooSmall() throws BadGridException{
+        String input = constructDummyGridOfDimensions(GRID_MIN_HEIGHT - 1, VALID_WIDTH_OR_HEIGHT);
+
+        underTest.convertToGrid(input);
+    }
+
+    @Test(expected = BadGridException.class)
+    public void shouldThrowExceptionWhenWidthTooSmall() throws BadGridException{
+        String input = constructDummyGridOfDimensions(GRID_MIN_WIDTH - 1, VALID_WIDTH_OR_HEIGHT);
+
+        underTest.convertToGrid(input);
+    }
+
+    @Test(expected = BadGridException.class)
+    public void shouldThrowExceptionWhenHeightTooBig() throws BadGridException{
         String input = constructDummyGridOfDimensions(GRID_MAX_HEIGHT + 1, VALID_WIDTH_OR_HEIGHT);
 
         underTest.convertToGrid(input);
     }
 
     @Test(expected = BadGridException.class)
-    public void shouldThrowExceptionWhenGridIsWrongWidth() throws BadGridException{
+    public void shouldThrowExceptionWhenWidthTooBig() throws BadGridException{
         String input = constructDummyGridOfDimensions(VALID_WIDTH_OR_HEIGHT, GRID_MAX_WIDTH + 1);
-
-        underTest.convertToGrid(input);
-    }
-
-    @Test(expected = BadGridException.class)
-    public void shouldThrowExceptionWhenInputIsEmpty() throws BadGridException{
-        String input = "";
 
         underTest.convertToGrid(input);
     }

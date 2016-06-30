@@ -8,6 +8,8 @@ import static java.lang.Double.parseDouble;
 public class GridConverter {
     private static final int GRID_MAX_HEIGHT = 10;
     private static final int GRID_MAX_WIDTH = 100;
+    private static final int GRID_MIN_HEIGHT = 1;
+    private static final int GRID_MIN_WIDTH = 5;
 
     public RealMatrix convertToGrid(String input) throws BadGridException {
         String[] rows = input.split("\n");
@@ -58,7 +60,7 @@ public class GridConverter {
     }
 
     private void throwExceptionWhenGridIsInvalidSize(int height, int width) throws BadGridException {
-        if (height > GRID_MAX_HEIGHT || width > GRID_MAX_WIDTH){
+        if (height > GRID_MAX_HEIGHT || width > GRID_MAX_WIDTH || height < GRID_MIN_HEIGHT || width < GRID_MIN_WIDTH){
             throw new BadGridException();
         }
     }
