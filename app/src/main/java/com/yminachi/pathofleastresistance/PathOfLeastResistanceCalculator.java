@@ -15,9 +15,21 @@ public class PathOfLeastResistanceCalculator {
 	private GridConverter gridConverter;
 	private OutputFormatter outputFormatter;
 
-	public PathOfLeastResistanceCalculator(BestPathThroughGridCalculator bestPathThroughGridCalculator, GridConverter gridConverter, OutputFormatter outputFormatter) {
+	public PathOfLeastResistanceCalculator() {
+		bestPathThroughGridCalculator = new BestPathThroughGridCalculator();
+		gridConverter = new GridConverter();
+		outputFormatter = new OutputFormatter();
+	}
+
+	public void setBestPathThroughGridCalculator(BestPathThroughGridCalculator bestPathThroughGridCalculator) {
 		this.bestPathThroughGridCalculator = bestPathThroughGridCalculator;
+	}
+
+	public void setGridConverter(GridConverter gridConverter) {
 		this.gridConverter = gridConverter;
+	}
+
+	public void setOutputFormatter(OutputFormatter outputFormatter) {
 		this.outputFormatter = outputFormatter;
 	}
 

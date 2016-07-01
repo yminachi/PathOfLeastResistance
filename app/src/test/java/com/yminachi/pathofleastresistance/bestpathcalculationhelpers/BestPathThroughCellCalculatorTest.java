@@ -39,7 +39,8 @@ public class BestPathThroughCellCalculatorTest {
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 
-		underTest = new BestPathThroughCellCalculator(minimumPathPicker);
+		underTest = new BestPathThroughCellCalculator();
+		underTest.setMinimumPathPicker(minimumPathPicker);
 
 		when(minimumPathPicker.pickMinimumPath(previousAdjacentPaths)).thenReturn(path);
 		when(path.getRowsInPath()).thenReturn(asList(PREVIOUS_ROW_1, PREVIOUS_ROW_2));

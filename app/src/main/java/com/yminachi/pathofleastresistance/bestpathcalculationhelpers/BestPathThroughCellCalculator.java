@@ -9,7 +9,11 @@ public class BestPathThroughCellCalculator {
 
 	private MinimumPathPicker minimumPathPicker;
 
-	public BestPathThroughCellCalculator(MinimumPathPicker minimumPathPicker) {
+	public BestPathThroughCellCalculator() {
+		minimumPathPicker = new MinimumPathPicker();
+	}
+
+	void setMinimumPathPicker(MinimumPathPicker minimumPathPicker){
 		this.minimumPathPicker = minimumPathPicker;
 	}
 

@@ -43,7 +43,10 @@ public class PathOfLeastResistanceCalculatorTest {
 	public void setup() throws BadGridException {
 		MockitoAnnotations.initMocks(this);
 
-		underTest = new PathOfLeastResistanceCalculator(bestPathThroughGridCalculator, gridConverter, outputFormatter);
+		underTest = new PathOfLeastResistanceCalculator();
+		underTest.setBestPathThroughGridCalculator(bestPathThroughGridCalculator);
+		underTest.setGridConverter(gridConverter);
+		underTest.setOutputFormatter(outputFormatter);
 
 		when(gridConverter.convertToGrid(INPUT)).thenReturn(grid);
 		when(grid.getColumnDimension()).thenReturn(NUMBER_OF_COLUMNS);

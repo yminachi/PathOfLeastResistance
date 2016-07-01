@@ -47,7 +47,10 @@ public class BestPathThroughGridCalculatorTest {
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 
-		underTest = new BestPathThroughGridCalculator(bestPathsThroughColumnCalculator, initialColumnPathsBuilder, minimumPathPicker);
+		underTest = new BestPathThroughGridCalculator();
+		underTest.setMinimumPathPicker(minimumPathPicker);
+		underTest.setBestPathsThroughColumnCalculator(bestPathsThroughColumnCalculator);
+		underTest.setInitialColumnPathsBuilder(initialColumnPathsBuilder);
 	}
 
 	@Test

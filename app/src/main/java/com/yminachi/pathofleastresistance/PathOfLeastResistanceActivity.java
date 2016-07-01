@@ -11,8 +11,6 @@ public class PathOfLeastResistanceActivity extends AppCompatActivity {
 	private TextView outputText;
 	private EditText inputText;
 
-	private PathOfLeastResistanceCalculatorFactory pathOfLeastResistanceCalculatorFactory;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -20,17 +18,11 @@ public class PathOfLeastResistanceActivity extends AppCompatActivity {
 
 		outputText = (TextView) findViewById(R.id.outputText);
 		inputText = (EditText) findViewById(R.id.inputText);
-
-		setPathOfLeastResistanceCalculatorFactory(new PathOfLeastResistanceCalculatorFactory());
-	}
-
-	public void setPathOfLeastResistanceCalculatorFactory(PathOfLeastResistanceCalculatorFactory pathOfLeastResistanceCalculatorFactory) {
-		this.pathOfLeastResistanceCalculatorFactory = pathOfLeastResistanceCalculatorFactory;
 	}
 
 	public void calculatePathOfLeastResistance(View view) {
 		String input, output;
-		PathOfLeastResistanceCalculator pathOfLeastResistanceCalculator = pathOfLeastResistanceCalculatorFactory.createPathOfLeastResistanceCalculator();
+		PathOfLeastResistanceCalculator pathOfLeastResistanceCalculator = new PathOfLeastResistanceCalculator();
 		input = inputText.getText().toString();
 		output = pathOfLeastResistanceCalculator.calculatePathOfLeastResistance(input);
 		outputText.setText(output);

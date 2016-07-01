@@ -49,7 +49,10 @@ public class BestPathsThroughColumnCalculatorTest {
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 
-		underTest = new BestPathsThroughColumnCalculator(adjacentCellPathPicker, bestPathThroughCellCalculator);
+		underTest = new BestPathsThroughColumnCalculator();
+
+		underTest.setAdjacentCellPathPicker(adjacentCellPathPicker);
+		underTest.setBestPathThroughCellCalculator(bestPathThroughCellCalculator);
 	}
 
 	@Test

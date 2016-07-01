@@ -8,15 +8,25 @@ import java.util.Map;
 
 public class BestPathThroughGridCalculator {
 	private BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator;
-	private InitialColumnPathsBuilder initialColumnPathsBuilder;
 	private MinimumPathPicker minimumPathPicker;
+	private InitialColumnPathsBuilder initialColumnPathsBuilder;
 
-	public BestPathThroughGridCalculator(BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator,
-										 InitialColumnPathsBuilder initialColumnPathsBuilder,
-										 MinimumPathPicker minimumPathPicker) {
-		this.bestPathsThroughColumnCalculator = bestPathsThroughColumnCalculator;
+	public BestPathThroughGridCalculator() {
+		bestPathsThroughColumnCalculator = new BestPathsThroughColumnCalculator();
+		initialColumnPathsBuilder = new InitialColumnPathsBuilder();
+		minimumPathPicker = new MinimumPathPicker();
+	}
+
+	public void setInitialColumnPathsBuilder(InitialColumnPathsBuilder initialColumnPathsBuilder) {
 		this.initialColumnPathsBuilder = initialColumnPathsBuilder;
+	}
+
+	public void setMinimumPathPicker(MinimumPathPicker minimumPathPicker) {
 		this.minimumPathPicker = minimumPathPicker;
+	}
+
+	void setBestPathsThroughColumnCalculator(BestPathsThroughColumnCalculator bestPathsThroughColumnCalculator){
+		this.bestPathsThroughColumnCalculator = bestPathsThroughColumnCalculator;
 	}
 
 	public Path calculateBestPathThroughGrid(RealMatrix grid, double maxTotal) {

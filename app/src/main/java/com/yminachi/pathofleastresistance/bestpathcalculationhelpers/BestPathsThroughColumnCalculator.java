@@ -10,8 +10,16 @@ public class BestPathsThroughColumnCalculator {
 	private AdjacentCellPathPicker adjacentCellPathPicker;
 	private BestPathThroughCellCalculator bestPathThroughCellCalculator;
 
-	public BestPathsThroughColumnCalculator(AdjacentCellPathPicker adjacentCellPathPicker, BestPathThroughCellCalculator bestPathThroughCellCalculator) {
+	public BestPathsThroughColumnCalculator() {
+		adjacentCellPathPicker = new AdjacentCellPathPicker();
+		bestPathThroughCellCalculator = new BestPathThroughCellCalculator();
+	}
+
+	void setAdjacentCellPathPicker(AdjacentCellPathPicker adjacentCellPathPicker){
 		this.adjacentCellPathPicker = adjacentCellPathPicker;
+	}
+
+	void setBestPathThroughCellCalculator(BestPathThroughCellCalculator bestPathThroughCellCalculator){
 		this.bestPathThroughCellCalculator = bestPathThroughCellCalculator;
 	}
 

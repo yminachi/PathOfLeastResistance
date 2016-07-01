@@ -1,7 +1,6 @@
 package com.yminachi.pathofleastresistance.functionaltest;
 
 import com.yminachi.pathofleastresistance.PathOfLeastResistanceCalculator;
-import com.yminachi.pathofleastresistance.PathOfLeastResistanceCalculatorFactory;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class PathOfLeastResistanceFunctionalTest {
 
 	@Before
 	public void setup() {
-		calculator = new PathOfLeastResistanceCalculatorFactory().createPathOfLeastResistanceCalculator();
+		calculator = new PathOfLeastResistanceCalculator();
 	}
 
 	@Test
