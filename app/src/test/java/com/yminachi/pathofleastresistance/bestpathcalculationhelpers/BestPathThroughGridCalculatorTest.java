@@ -76,7 +76,8 @@ public class BestPathThroughGridCalculatorTest {
 
 	private void stubColumnPaths() {
 		when(grid.getColumnDimension()).thenReturn(3);
-		when(initialColumnPathsBuilder.buildInitialColumnPaths(3)).thenReturn(initialEmptyPaths);
+		when(grid.getRowDimension()).thenReturn(COLUMN_1.length);
+		when(initialColumnPathsBuilder.buildInitialColumnPaths(COLUMN_1.length)).thenReturn(initialEmptyPaths);
 
 		stubColumnPath(1, COLUMN_1, paths2, initialEmptyPaths, bestColumnPaths1);
 		stubColumnPath(2, COLUMN_2, paths2, bestColumnPaths1, bestColumnPaths2);

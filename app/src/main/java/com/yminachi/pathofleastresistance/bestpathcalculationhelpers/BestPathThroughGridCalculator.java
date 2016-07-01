@@ -30,7 +30,7 @@ public class BestPathThroughGridCalculator {
 	}
 
 	public Path calculateBestPathThroughGrid(RealMatrix grid, double maxTotal) {
-		Map<Integer, Path> previousColumnsPaths = initialColumnPathsBuilder.buildInitialColumnPaths(grid.getColumnDimension());
+		Map<Integer, Path> previousColumnsPaths = initialColumnPathsBuilder.buildInitialColumnPaths(grid.getRowDimension());
 
 		for (int column = 1; column <= grid.getColumnDimension(); column++) {
 			Map<Integer, Path> thisColumnsPaths;

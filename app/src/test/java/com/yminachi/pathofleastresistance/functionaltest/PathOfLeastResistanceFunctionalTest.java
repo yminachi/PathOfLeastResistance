@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.Matchers.in;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -112,6 +113,26 @@ public class PathOfLeastResistanceFunctionalTest {
 		String expectedOutput = "No\n" +
 				"49\n" +
 				"7 6 6 5 5 4 3 4 5 4 4 5 4 5 4 4 5 6 6 5 5 6 6 5 5 5 4 3 2 2 2 1";
+
+		assertThat(calculator.calculatePathOfLeastResistance(input), is(expectedOutput));
+	}
+
+	@Test
+	public void testCaseFromTom(){
+		String input = "3 4 1 1 0 999\n" +
+				"3 7 2 1 2 999\n" +
+				"3 7 2 1 2 999\n" +
+				"6 0 8 2 7 999\n" +
+				"5 9 3 9 9 999\n" +
+				"8 4 3 3 2 6\n" +
+				"3 7 2 1 2 999\n" +
+				"3 7 2 1 2 999\n" +
+				"3 7 2 1 2 999\n" +
+				"3 7 2 1 2 999";
+
+		String expectedOutput = "Yes\n" +
+				"17\n" +
+				"3 4 5 6 6 6";
 
 		assertThat(calculator.calculatePathOfLeastResistance(input), is(expectedOutput));
 	}
