@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.yminachi.pathofleastresistance"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -22,7 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'org.mockito:mockito-core:2.0.71-beta'
     compile 'org.hamcrest:hamcrest-junit:2.0.0.0'
     compile 'commons-math:commons-math:20040218.045431'

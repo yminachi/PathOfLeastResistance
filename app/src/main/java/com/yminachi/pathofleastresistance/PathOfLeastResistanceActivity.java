@@ -1,12 +1,12 @@
 package com.yminachi.pathofleastresistance;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class PathOfLeastResistanceActivity extends AppCompatActivity {
+public class PathOfLeastResistanceActivity extends Activity {
 
 	private TextView outputText;
 	private EditText inputText;
