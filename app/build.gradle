@@ -21,10 +21,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+
+    testCompile ('junit:junit:4.12') {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile 'org.mockito:mockito-core:2.0.71-beta'
+    testCompile 'org.hamcrest:hamcrest-junit:2.0.0.0'
+
     compile 'com.android.support:appcompat-v7:21.0.0'
-    compile 'org.mockito:mockito-core:2.0.71-beta'
-    compile 'org.hamcrest:hamcrest-junit:2.0.0.0'
     compile 'commons-math:commons-math:20040218.045431'
     compile 'com.google.guava:guava:19.0'
 }
