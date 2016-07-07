@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.anyOf;
-import static org.hamcrest.Matchers.in;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -118,7 +117,7 @@ public class PathOfLeastResistanceFunctionalTest {
 	}
 
 	@Test
-	public void testCaseFromTom(){
+	public void testCaseWhereBeginningBestPathIsNotCorrect(){
 		String input = "3 4 1 1 0 999\n" +
 				"3 7 2 1 2 999\n" +
 				"3 7 2 1 2 999\n" +
